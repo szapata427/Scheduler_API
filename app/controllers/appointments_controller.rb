@@ -1,11 +1,11 @@
 class AppointmentsController < ApplicationController
 
-    # def index 
-    #     @schedule = Schedule.find(params[:schedule_id])
-    #     @all_appointments = @schedule.appointments.all
-    #     render json: @all_appointments
+    def index 
+        @schedule = Schedule.find(params[:schedule_id])
+        @all_appointments = @schedule.appointments.all
+        render json: @all_appointments
 
-    # end
+    end
 
     def create
         @schedule = Schedule.find(params[:schedule_id])
