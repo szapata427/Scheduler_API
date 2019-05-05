@@ -11,8 +11,9 @@ class SchedulesController < ApplicationController
     end
 
     def create
+        byebug
         @schedule = Schedule.create(schedule_params)
-        if @appointment.save
+        if @schedule.save
             render json: {status:"Success", message: "Schedule Saved", data:@schedule}, status: :ok
         else
             render json: {status: "Error", message: 'Schedule not saved', data:schedule.errors}, status: :unprocessable_entity
