@@ -1,9 +1,9 @@
 class AppointmentsController < ApplicationController
 
-    def index 
-        @schedule = Schedule.find(params[:schedule_id])
-        @all_appointments = @schedule.appointments.all
-        render json: @all_appointments
+    # def index 
+    #     @schedule = Schedule.find(params[:schedule_id])
+    #     @all_appointments = @schedule.appointments.all
+    #     render json: @all_appointments
 
     end
 
@@ -35,7 +35,6 @@ class AppointmentsController < ApplicationController
 
     def destroy 
         @schedule = Schedule.find(params[:schedule_id])
-        byebug
         @appointment = @schedule.appointments.find(params[:id])
         @appointment.destroy
         
