@@ -9,8 +9,8 @@ class AppointmentsController < ApplicationController
 
     def create
         @schedule = Schedule.find(params[:schedule_id])
-        if appointment_params[:start_time] > appointment_params[:end_time]
-            render json: {message: "start time is greater than end time, check your times ", data: appointment_params}
+        if appointment_params[:start_time] >= appointment_params[:end_time]
+            render json: {message: "start time is greater or equal to end time, check your times ", data: appointment_params}
         else
             times_booked = []
             @all_appointments = @schedule.appointments.all
